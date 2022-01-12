@@ -69,7 +69,7 @@ class livesBar {
         <img src="asset/${this.picture}" class="flexLives-picture">
         <h3 class="flexLives-livesName">${this.lifeName}</h3>
         <div class="flexLives-value"> 100% </div>
-        <progress max="100" value="10" class="flexLives-lifeBar"></progress>
+        <progress max="100" value="100" class="flexLives-lifeBar"></progress>
         <span class= "flexLives-message"></span>
       </figure>`;
       
@@ -163,11 +163,13 @@ document.querySelector('.flexButton-button--begin').addEventListener("click", be
 
 let observe = new MutationObserver ((MutationRecords) => {
   let lives = document.querySelector('.flexLives')
-  if (MutationRecords[0].target == lives.firstChild.children[2]) {
-    let elbutton =document.querySelectorAll('.flexButton-button')
-    for (let el of elbutton) {
-      if (!el.classList.contains('flexButton-button--giveUp')) {
-        el.addEventListener('click', battle)
+  if (lives.firstChild) {
+    if (MutationRecords[0].target == lives.firstChild.children[2]) {
+      let elbutton =document.querySelectorAll('.flexButton-button')
+      for (let el of elbutton) {
+        if (!el.classList.contains('flexButton-button--giveUp')) {
+          el.addEventListener('click', battle)
+        }
       }
     }
   }
