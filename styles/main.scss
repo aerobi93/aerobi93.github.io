@@ -51,8 +51,8 @@
   
   &-value {
     font-size: $fontSize *1.25;
-    color: red;
-    text-shadow: black 2px 2px;
+    color: black;
+    text-shadow: red 1px 1px;
     font-weight: bolder;
     text-align: center;
     position: relative;
@@ -63,6 +63,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    background-color: none;
     position: relative;
     &--off {
       display: none;

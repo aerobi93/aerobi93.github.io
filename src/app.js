@@ -4,6 +4,9 @@ const round = function (min , max) {
 }
 const  moving = async function  (target, intervalSecond, dommage) {
   let start = Date.now(); 
+  if (target.parentElement.children[3].getAttribute('value')  - dommage <= 0) {
+    return
+  }
   let timer = setInterval(function() {
   let timePassed = Date.now() - start;
   if (timePassed >= intervalSecond) {
@@ -37,14 +40,12 @@ const movesAfterAttack =  async (player, dommage) => {
     }, 500)
     return
   }
-
-  setTimeout(() => {
-    enemyDiv.children[0].style.backgroundColor='blue'
+    setTimeout(() => {
+    enemyDiv.children[0].style.backgroundColor='inherit'
     enemyDiv.children[2].textContent = `${lifeValue - dommage}%`
     enemyDiv.children[3].setAttribute('value', lifeValue -dommage)
     enemyDiv.children[4].textContent="a recu " + dommage + " degat"
   }, 50);
-
 }
 
 class Button {
@@ -91,7 +92,7 @@ class actionBattle  {
   heal(){
     let life  = this.lives.firstChild.children[3].getAttribute("value")
     let intervalSecond = 1000 * 1.5 
-    let dommage = 5
+    let dommage = round(5 ,10)
     if (+life + 10 > 100) { 
      alert('vie deja au max')
      this.lives.firstChild.children[2].textContent = `${100}%`
@@ -107,18 +108,13 @@ class actionBattle  {
     } 
   }
   attack() {
-    let life  = this.lives.firstChild.children[3].getAttribute("value")
-    let monsterlife  = this.lives.firstChild.children[3].getAttribute("value")
     let intervalSecond = 1000 * 1.5 
     let dommage =""
-    this.value == 'attack' ?  dommage = round(0, 3) : dommage  = round(10, 15)
+    this.value == 'attack' ?  dommage = round(3, 10) : dommage  = round(10, 15)
     moving(this.lives.firstChild.children[0], intervalSecond, dommage)
-    if ( life - 5  > 0 && monsterlife - dommage >0 ) {
-       setTimeout(() => {
-        moving(this.lives.lastChild.children[0], intervalSecond, 5)
-      },intervalSecond );
-    }
-   
+    setTimeout(() => {
+      moving(this.lives.lastChild.children[0], intervalSecond, round(5, 10))
+     },intervalSecond );
   }
 }
 

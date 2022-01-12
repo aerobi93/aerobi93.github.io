@@ -100,8 +100,8 @@ table {
 }
 .flexLives-value {
   font-size: 1.25rem;
-  color: red;
-  text-shadow: black 2px 2px;
+  color: black;
+  text-shadow: red 1px 1px;
   font-weight: bolder;
   text-align: center;
   position: relative;
@@ -112,6 +112,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  background-color: none;
   position: relative;
 }
 .flexLives-picture--off {
