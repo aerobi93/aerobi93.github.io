@@ -1,0 +1,24 @@
+{
+  "name": "monsterslayerclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch styles/main.scss:styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerobi93/monsterSlayerclass.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aerobi93/monsterSlayerclass/issues"
+  },
+  "homepage": "https://github.com/aerobi93/monsterSlayerclass#readme"
+}
