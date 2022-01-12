@@ -90,16 +90,20 @@ class actionBattle  {
  
   heal(){
     let life  = this.lives.firstChild.children[3].getAttribute("value")
+    let intervalSecond = 1000 * 1.5 
+    let dommage = 5
     if (+life + 10 > 100) { 
      alert('vie deja au max')
      this.lives.firstChild.children[2].textContent = `${100}%`
      this.lives.firstChild.children[3].setAttribute('value', 100)
      this.lives.firstChild.children[4].textContent = `vous avez recuperez ${100 - +life} point de vie`
+     moving(this.lives.lastChild.children[0], intervalSecond, dommage)
     }
     else {
       this.lives.firstChild.children[2].textContent = `${+life + 10}%`
       this.lives.firstChild.children[3].setAttribute('value', +life + 10)
       this.lives.firstChild.children[4].textContent = "vous avez recupere 10p de vie"
+      moving(this.lives.lastChild.children[0], intervalSecond, dommage)
     } 
   }
   attack() {
